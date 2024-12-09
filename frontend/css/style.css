@@ -1,0 +1,82 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: url('bgr.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 60px 0;
+}
+
+.card {
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.navbar-brand img {
+  margin-right: 10px;
+}
+
+.rounded-logo {
+  width: 50px; /* Set the width of the logo */
+  height: 50px; /* Set the height of the logo */
+  border-radius: 50%; /* Makes the logo circular */
+  border: 2px solid white; /* Optional: Adds a white border around the logo */
+  object-fit: cover; /* Ensures the image fits properly within the circle */
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  color: white;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #fff;
+}
+
+.metric-card {
+  transition: transform 0.2s ease-in-out;
+  border-radius: 15px;
+}
+
+.metric-card:hover {
+  transform: scale(1.05);
+}
+
+.chart-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.chart-container h2 {
+  color: #4caf50;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+}
+
+.card p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#wallet-status {
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Gestionnaire Risque</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body style="background-image: url('bgr.png'); background-size: cover; background-attachment: fixed; color: white;">
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="logo.png" alt="Logo" class="rounded-logo me-2"> Gestionnaire
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="dashboard.html"><i class="fas fa-chart-line me-1"></i> Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="transactions.html"><i class="fas fa-exchange-alt me-1"></i> Transactions</a></li>
+          <li class="nav-item"><a class="nav-link" href="create-counterparty.html"><i class="fas fa-user-plus me-1"></i> Add Counterparty</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin.html"><i class="fas fa-user-shield me-1"></i> Admin</a></li>
+        </ul>
+        <button id="connect-wallet" class="btn btn-outline-primary ms-3"><i class="fas fa-wallet me-2"></i> Connect Wallet</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="text-center py-5" style="background: rgba(0, 0, 0, 0.7);">
+    <h1 class="display-4 fw-bold">Dashboard</h1>
+    <p class="lead">Track key metrics and monitor risks effectively.</p>
+    <div>      
+        <span id="wallet-status" class="badge" style="background-color: black; font-weight: bold; color: white; padding: 10px 20px;">Wallet not connected</span>
+    </div>
+  </header>
+  
+  <!-- Metrics Section -->
+  <section class="container my-5">
+    <div class="row text-center">
+      <div class="col-lg-4">
+        <div class="card metric-card bg-dark text-white shadow-lg">
+          <div class="card-body">
+            <h3>Total Counterparties</h3>
+            <p id="total-counterparties" class="display-6">0</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card metric-card bg-dark text-white shadow-lg">
+          <div class="card-body">
+            <h3>Total Transactions</h3>
+            <p id="total-transactions" class="display-6">0</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card metric-card bg-dark text-white shadow-lg">
+          <div class="card-body">
+            <h3>Total Exposure</h3>
+            <p id="total-exposure" class="display-6">$0</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Risk Metrics Section -->
+  <!-- Metrics Section -->
+  <section class="container my-5">
+    <div class="chart-container bg-dark text-white p-4 rounded shadow-lg">
+      <h2 class="text-center mb-4">Metrics Overview (Log Scale)</h2>
+      <canvas id="log-bar-chart" width="400" height="200"></canvas>
+    </div>
+  </section>
+  
+
+
+  <!-- Counterparties Overview Section -->
+  <section class="container my-5">
+    <h2 class="text-center text-white" style="
+      color: rgb(255, 255, 255);
+      background: linear-gradient(90deg, #000000, #333);
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      margin-left: 300px;
+      margin-right: 300px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+    ">Counterparties Overview</h2>
+    <table class="table table-dark table-striped shadow-lg mt-4">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Counterparty Address</th>
+          <th>Guarantee Ratio (%)</th>
+          <th>Risk Level</th>
+          <th>Trust Badge</th>
+        </tr>
+      </thead>
+      <tbody id="counterparties-table">
+        <!-- Rows will be populated dynamically -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    &copy; 2024 Gestionnaire Risque Contrepartie. Tous droits réservés.
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="js/dashboard.js"></script>
+  <script src="js/wallet.js"></script>
+  <script src="js/contract.js"></script>
+</body>
+</html>
